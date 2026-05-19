@@ -5,7 +5,7 @@ import '../models/portfolio.dart';
 
 class ApiService {
   // ── Change this to your Cloud Run URL after deployment ──
-  static const String baseUrl = 'https://stock-screener-180328327923.us-east4.run.app';
+  static const String baseUrl = 'https://stock-screener-180328327923.us-central1.run.app';
   // For local development:  'http://localhost:8080'
 
   static const Duration _timeout = Duration(seconds: 30);

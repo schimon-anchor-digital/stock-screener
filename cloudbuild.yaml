@@ -4,21 +4,21 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/quantapp-backend:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/stock-screener-backend:$COMMIT_SHA'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/quantapp-backend:latest'
+      - 'gcr.io/$PROJECT_ID/stock-screener-backend:latest'
       - './backend'
 
   # Step 2: Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/quantapp-backend:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/stock-screener-backend:$COMMIT_SHA'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/quantapp-backend:latest'
+      - 'gcr.io/$PROJECT_ID/stock-screener-backend:latest'
 
   # Step 3: Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -26,15 +26,19 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'quantapp-backend'
-      - '--image=gcr.io/$PROJECT_ID/quantapp-backend:$COMMIT_SHA'
+      - 'stock-screener'
+      - '--image=gcr.io/$PROJECT_ID/stock-screener-backend:$COMMIT_SHA'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
       - '--memory=1Gi'
       - '--timeout=120'
 
+# Required when a service account is specified on the trigger
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # Store the built image
 images:
-  - 'gcr.io/$PROJECT_ID/quantapp-backend:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/quantapp-backend:latest'
+  - 'gcr.io/$PROJECT_ID/stock-screener-backend:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/stock-screener-backend:latest'

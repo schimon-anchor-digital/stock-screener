@@ -1,3 +1,4 @@
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'screener_screen.dart';
 import 'portfolio_screen.dart';
@@ -54,6 +55,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-// Re-export QuantColors for convenience
-import '../main.dart';

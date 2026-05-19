@@ -20,6 +20,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import json, csv, io
+import time
 
 # TODO: ALPACA — import alpaca_trade_api as tradeapi
 
@@ -222,6 +223,7 @@ def score_stocks(
         scored = fetch_and_score(ticker, weights)
         if scored:
             results.append(scored)
+        time.sleep(0.5) # rate limit to avoid hitting yfinance limits - 500ms between requests
 
     results.sort(key=lambda x: x["total_score"], reverse=True)
 

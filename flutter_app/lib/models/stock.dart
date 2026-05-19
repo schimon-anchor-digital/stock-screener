@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 // ── Scoring Weights ────────────────────────────────────────────────────────
 class ScoringWeights {
   double momentum;
@@ -146,7 +148,3 @@ class StockDetail {
         history: (j['history'] as List).map((e) => PricePoint.fromJson(e)).toList(),
       );
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Re-export Color so models file is standalone
-import 'package:flutter/material.dart';

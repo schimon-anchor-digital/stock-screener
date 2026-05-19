@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/stock.dart';
 import '../models/portfolio.dart';
-import '../models/trade.dart';
 
 class ApiService {
   // ── Change this to your Cloud Run URL after deployment ──

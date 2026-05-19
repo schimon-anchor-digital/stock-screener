@@ -55,7 +55,7 @@ class QuantApp extends StatelessWidget {
         bodyMedium:    GoogleFonts.inter(color: textPrim, fontSize: 14),
         bodySmall:     GoogleFonts.inter(color: textSub, fontSize: 12),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surface,
         elevation: 0,
         shape: RoundedRectangleBorder(

@@ -198,7 +198,7 @@ def health():
 
 @app.get("/score-stocks")
 def score_stocks(
-    limit: int = Query(100, ge=1, le=len(STOCK_UNIVERSE)),
+    limit: int = Query(20, ge=1, le=len(STOCK_UNIVERSE)),
     momentum_w: float = Query(0.30),
     pe_w: float = Query(0.25),
     profit_margin_w: float = Query(0.25),
